@@ -1,0 +1,24 @@
+<p [ngStyle]="{backgroundColor : getColor()}">Server Status is {{ serverStatus}}</p>
+<div>
+<label>Event Binding With Paasing Data</label>
+<input type="text" (input)="updateServerName($event)">
+</div>
+<div>
+<label>Two way data binding</label>
+<input type="text" [(ngModel)]="serverName">
+</div>
+<p *ngIf="serverName=='windows';else noServer">{{ serverName }}</p> 
+<ng-template #noServer>
+    <p>
+        Server is not created
+    </p>
+</ng-template>
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select server
+    </a>
+  
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a *ngFor="let server of serverDetails"class="dropdown-item" href="#">{{ server }}</a>
+    </div>
+  </div>

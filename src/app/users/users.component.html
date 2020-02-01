@@ -1,0 +1,20 @@
+<html>
+<table class="table table-sm table-hover" width="500px">
+    <thead>
+      <tr class="table-active">
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">NAME</th>
+        <th scope="col">CITY</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users;let i=index">
+        <td>{{ i + 1 }} </td>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name | uppercase }}</td>
+        <td>{{ user.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+  </html>

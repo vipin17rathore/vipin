@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()" modelAttribute="formuser">
+        {{ userForm.value | json }}
+<hr>
+        {{ userModel | json }}
+        
+        <div class="form-group"></div>
+        <label>Name</label>
+        <input type="text" class="form-control" #name name="name" [(ngModel)]="userModel.name" >
+
+        {{ name.className}}
+        
+        <div class="form-group"></div>
+        <label>Email</label>
+        <input type="email" class="form-control" name="email" [(ngModel)]="userModel.email">
+
+        <div class="form-group"></div>
+        <label>Phone</label>
+        <input type="tel" class="form-control" name="phone" [(ngModel)]="userModel.phone">
+
+
+        <div class="form-group"></div>
+        <select class="custom-select" name="topic" [(ngModel)]="userModel.topic">
+            <option selected>I Am Intrested In</option>
+            <option *ngFor="let topic of topics">{{ topic }}</option>
+        </select>
+
+        <div class="mb-3">
+            <br>
+            <label>Time Preference</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="timePreference" value="morning" [(ngModel)]="userModel.timePreference"> 
+                <label class="form-check-label">Morning 9 to 12 PM</label>
+            </div>
+
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="timePreference" value="evening" [(ngModel)]="userModel.timePreference">
+                <label class="form-check-label">Morning 5 to 8 PM</label>
+            </div>
+        </div>
+            <br>
+            <div class="form-check mb-3">
+                <input class="form-check-input" type="checkbox" name="subscribe" [(ngModel)]="userModel.subscribe">
+                <label class="form-check-label">
+                    Send Me The promotional offer
+                </label>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Submit Form</button>
+        
+    </form>
+</div>

@@ -1,0 +1,16 @@
+<html>
+<body>
+    <div class="container">
+        <div class="row">
+            <app-cockpit (serverCreated)="onServeradded($event)"></app-cockpit>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <app-server-element  *ngFor="let abc of serverArray" [strName]="strName" [data]="abc"></app-server-element>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
